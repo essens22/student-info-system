@@ -22,8 +22,6 @@
 
     <div id="studentList"></div>
 
-
-    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
@@ -37,8 +35,6 @@
             SUPABASE_KEY
         );
 
-
-        // Add student
         async function addStudent() {
 
             const record = {
@@ -62,8 +58,6 @@
             loadStudents();
         }
 
-
-        // Load students
         async function loadStudents() {
 
             const { data, error } = await db
@@ -85,8 +79,6 @@
                 `).join("");
         }
 
-
-        // Load students when page opens
         loadStudents();
 
     </script>
