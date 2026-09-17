@@ -2,32 +2,100 @@
 <html>
 <head>
     <title>Student Information System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #studentList {
+            margin-top: 25px;
+        }
+
+        #studentList p {
+            background-color: #f8f8f8;
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        #studentList b {
+            color: #333;
+            font-size: 17px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Student Information System</h1>
+    <div class="container">
 
-    <input id="studentNumber" placeholder="Student Number">
+        <h1>Student Information System</h1>
+        <input id="studentNumber" placeholder="Student Number">
+        <input id="fullName" placeholder="Full Name">
+        <input id="course" placeholder="Course">
+        <input id="email" placeholder="Email">
 
-    <input id="fullName" placeholder="Full Name">
+        <button onclick="addStudent()">
+            Save Student
+        </button>
 
-    <input id="course" placeholder="Course">
+        <div id="studentList"></div>
 
-    <input id="email" placeholder="Email">
-
-    <button onclick="addStudent()">
-        Save Student
-    </button>
-
-    <div id="studentList"></div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
 
         const SUPABASE_URL = "https://qhfyjrzydpptalcvkiib.supabase.co";
-
         const SUPABASE_KEY = "sb_publishable_GSTKM1_nDUwNkuEBP62KSw_Lno2fa1p";
 
         const db = supabase.createClient(
